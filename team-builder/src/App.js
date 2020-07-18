@@ -1,13 +1,16 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
+import form from './components/form'
 import './App.css';
 
 function App() {
-  const [member, setMember] = useState({
-    name: '',
-    email: '',
-    role: ''
-  })
+  const [member, setMember] = useState([{
+    name: 'Ava',
+    email: 'avelinewingfield.@gmail.com',
+    role: 'Front-End Dev'
+  },])
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,14 +18,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <form setMember = {setMember}/>
       </header>
     </div>
   );
