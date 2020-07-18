@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-function form(props){
+function Formae(props){
     const {setMember} = props;
     return(
         <Form>
@@ -33,4 +33,4 @@ function form(props){
     )
 }
 
-export default form
+export default Formae
