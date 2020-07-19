@@ -1,26 +1,42 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 function Formae(props){
-    const {setMember} = props;
+    const {members, setMember, member} = props;
+
+    const changeHandler = (event) => {
+        setMember({
+            ...member,
+            [event.target.name]:event.target.value
+        })
+    }
+
     return(
-        <Form>
-            <Label htmlFor = "name">Name:</Label>
+        <div>
+        <Form onSubmit = {event => {
+            event.preventDefault()
+            members.push(member)
+            console.log(members)
+        }}>
+            <Label htmlFor = "fname">Name:</Label>
             <Input type = "text"
-            name = "name"
+            name = "fname"
             id = "name"
-            placeholder = "First Name"></Input>
+            placeholder = "First Name"
+            onChange={changeHandler}></Input>
 
             <Label htmlFor = "email">Email Address:</Label>
             <Input type = "email"
             name = "email"
             id = "email"
-            placeholder = "email@emailaddress.com"></Input>
+            placeholder = "email@emailaddress.com"
+            onChange = {changeHandler}></Input>
 
             <Label htmlFor = "role">Role:</Label>
             <Input type = "select" 
             name = "role"
             id = "role"
+            onChange = {changeHandler}
             >
           <option>UI/UX</option>
           <option>Front-End Designer</option>
@@ -28,8 +44,11 @@ function Formae(props){
           <option>Back-End Badass</option>
           <option>Project Lead</option>
             </Input>
+            <br />
+            <Button>Submit</Button>
 
         </Form>
+        </div>
     )
 }
 

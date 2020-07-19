@@ -4,42 +4,49 @@ import TeamMembers from './components/teamMembers'
 import './App.css';
 
 function App() {
-  const [member, setMember] = useState([{
-    name: 'Ava',
+
+  const [members] = useState([{
+    fname: 'Ava',
     email: 'avelinewingfield.@gmail.com',
     role: 'Front-End Dev'
   },
   {
-    name: 'Ava',
+    fname: 'Ava',
     email: 'avelinewingfield.@gmail.com',
     role: 'Front-End Dev'
   },
   {
-    name: 'Ava',
+    fname: 'Ava',
     email: 'avelinewingfield.@gmail.com',
     role: 'Front-End Dev'
   },
   {
-    name: 'Ava',
+    fname: 'Ava',
     email: 'avelinewingfield.@gmail.com',
     role: 'Front-End Dev'
   },
   {
-    name: 'Ava',
+    fname: 'Ava',
     email: 'avelinewingfield.@gmail.com',
     role: 'Front-End Dev'
-  },])
+  }])
+
+  const [member, setMember] = useState({
+    fname: '',
+    email:'',
+    role: null
+  })
 
 
   return (
     <div className="App">
       <header className="App-header">
-        {console.log(member)}
-        {member.map(item => {
-          return <TeamMembers members = {item}/>
+        
+        {members.map(item => {
+         return <TeamMembers members = {item}/>
         })}
         
-        <Formae setMember = {setMember}/>
+        <Formae setMember = {setMember} member = {member} members={members}/>
       </header>
     </div>
   );
